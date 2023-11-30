@@ -1,7 +1,7 @@
 
 <div align="center">    
  
-# ReLSO: A Transformer-based Model for Latent Space Optimization and Generation of Proteins
+# ReLSO for AMD FPGA Accelerated (Patho.ai) : A Transformer-based Model for Latent Space Optimization and Generation of Proteins
 <!-- 
 [![Paper](http://img.shields.io/badge/paper-arxiv.2006.06885.svg)](https://arxiv.org/abs/2201.09948)
 -->

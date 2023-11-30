@@ -48,6 +48,7 @@ if __name__ == "__main__":
     parser.add_argument("--log_dir", default=None, type=str)
     parser.add_argument("--project_name", default="relso_project", type=str)
     parser.add_argument("--cpu", default=False, action="store_true")
+    parser.add_argument("--amd", default=False, action="store_true")
 
     # training arguments
     parser.add_argument("--alpha_val", default=1.0, type=float)
@@ -169,6 +170,16 @@ if __name__ == "__main__":
 
         )
 
+    elif cl_args.amd:
+        trainer = pl.Trainer.from_argparse_args(
+            cl_args,
+            max_epochs=cl_args.n_epochs,
+            accelerator="cuda",
+            # devices=1,
+            log_every_n_steps=min(len(data.train_dataloader()) // 2, 50),
+            logger=wandb_logger,
+
+        )
     else:
         trainer = pl.Trainer.from_argparse_args(
             cl_args,
