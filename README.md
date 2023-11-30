@@ -64,11 +64,17 @@ conda create --name relsoenv python=3.9
 conda activate relsoenv
 
 # install pytorch
+pip3 install torch torchvision torchaudio
+
 # GPU (linux)
 pip3 install torch torchvision torchaudio
 
+# AMD GPU (linux)
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.5
+
 # CPU only (linux)
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
 
 # CPU only (mac)
 pip3 install torch torchvision torchaudio
@@ -98,6 +104,9 @@ python train_relso.py  --data gifford
 
 # CPU training
 python train_relso.py  --data gifford --cpu
+
+# AMD GPU training
+python train_relso.py  --data gifford --amd
 ```
 
 
